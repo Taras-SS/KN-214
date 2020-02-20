@@ -1,0 +1,705 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/userPage/addDish/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/userPage/addDish/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <link rel="stylesheet" href="/userPage/addDish/css/uploadImage.css">
+    <link rel="stylesheet" href="/userPage/addDish/css/util.css">
+    <link rel="stylesheet" href="/userPage/addDish/css/main.css">
+    <link rel="stylesheet" href="/footer/footer.css">
+    <link rel="stylesheet" href="/footer/style.css">
+    <link rel="stylesheet" href="/dishes/css/main.css">
+    <link rel="stylesheet" href="/dishes/css/style.css">
+    <link rel="stylesheet" href="/dishes/css/colordefault.css">
+    <link rel="stylesheet" href="/userPage/removeDish/css/main.css">
+    <link rel="stylesheet" href="/userPage/editDish/css/main.css">
+    <link rel="stylesheet" href="/userPage/timetable/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.png" type="image/x-icon"/>
+    <title>Roki Taxi</title>
+</head>
+
+<body onload="checkFooter()">
+
+<header class="header">
+    <a href="/main" class="logo"><img src="/images/logo.png"></a>
+    <div class="header-right">
+        <a>
+            <input type="button" value="Вихід" id="logOut">
+        </a>
+    </div>
+</header>
+
+<div class="menu">
+    <svg height="30" viewBox="0 -53 384 384" width="30" class="showMenu"><g><path d="m368 154.667969h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0" data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"/><path d="m368 32h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0" data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"/><path d="m368 277.332031h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0" data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"/></g> </svg>
+    <div class="menuList none-display">
+        <ul class="menuPoints">
+            <li class="pointInMenu" id="show-add-new-dish">Додати</li>
+            <li class="pointInMenu" id="show-remove-dish">Видалити</li>
+            <li class="pointInMenu" id="show-edit-dish">Редагувати</li>
+            <li class="pointInMenu" id="show-timetable">Графік</li>
+        </ul>
+    </div>
+</div>
+
+<div class="container-contact100">
+    <div class="contact100-map" id="" data-map-x="40.722047" data-map-y="-73.986422" data-pin="images/icons/map-marker.png" data-scrollwhell="0" data-draggable="1"></div>
+
+
+    <div class="wrap-contact100">
+
+        <form class="contact100-form validate-form">
+				<span class="contact100-form-title">
+					Нова страва
+				</span>
+
+            <div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Назва страви">
+                <span class="label-input100">Назва страви</span>
+                <input class="input100" type="text" id="dishName" name="name" placeholder="Введіть назву страви">
+                <span class="focus-input100"></span>
+            </div>
+
+            <div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate = "Введіть ціну">
+                <span class="label-input100">Ціна</span>
+                <input class="input100" type="number" name="price" id="priceDish" placeholder="Введіть ціну">
+                <span class="focus-input100"></span>
+            </div>
+
+            <div class="wrap-input100 validate-input" data-validate = "Опис">
+                <span class="label-input100">Опис</span>
+                <textarea class="input100" name="message" id="dishDescription" placeholder="Короткий опис страви..."></textarea>
+                <span class="focus-input100"></span>
+            </div>
+
+            <div class="dish-type-selector">
+                <select class="selectpicker" id="dishType">
+                    <option selected="selected">Тип страви</option>
+                    <option>Основна страва</option>
+                    <option>Снек</option>
+                    <option>Напої</option>
+                </select>
+            </div>
+
+            <div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate = "Пріорітет">
+                <span class="label-input100">Пріорітет страви у Вашому меню</span>
+                <input class="input100" type="number" name="prioritet" id="dishPrioritet" oninput="checkPrioritet(this)" placeholder="Введіть пріорітет страви (від 1 до 10)">
+                <span class="focus-input100"></span>
+            </div>
+
+            <div id="uploadImageForm">
+                <form>
+                    <input type="file" id="addPhotoInput">
+                    <p>Загрузіть фотографію вашої страви</p>
+                    <button type="button">Вибрати</button>
+                </form>
+            </div>
+
+            <div class="container-contact100-form-btn">
+                <button class="contact100-form-btn">
+						<span>
+							Зберегти
+							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+						</span>
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<section class="product-sesction-02 margin-top-50 none-display" style="height: 66%" id="goodsContainer">
+    <div class="container">
+
+        <div class="swin-sc swin-sc-product products-02 carousel-02">
+
+            <div class="products nav-slider slick-initialized slick-slider">
+                <div aria-live="polite" class="slick-list" ><div class="slick-track" style="opacity: 1" role="listbox"><div class="row slick-padding slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style=" left: 0px; top: 0px; z-index: 999; opacity: 1;" tabindex="-1" role="option" aria-describedby="slick-slide20">
+                            <% for(let i=0; i<dishes.length; i++){ %>
+                                <div class="col-md-4 col-sm-6 col-xs-12 dishesPositions" id="addPosition<%= i %>">
+                                    <div class="blog-item item swin-transition">
+                                        <div class="block-img"><img src="<%= dishes[i].Image %>" alt="" class="img img-responsive">
+                                            <div class="block-circle price-wrapper"><span class="price woocommerce-Price-amount amount"><span class="price-symbol">₴</span><%= dishes[i].Price %></span></div>
+                                            <div class="dish-description">
+                                                <a class="dish-description"><%= dishes[i].Description %></a>
+                                            </div>
+                                        </div>
+                                        <div class="block-content">
+                                            <h5 class="title"><a href="javascript:void(0)" tabindex="0"><%= dishes[i].DishName %></a></h5>
+                                        </div>
+                                        <div class="removeBtnDiv">
+                                            <input class="removeBtn" type="button" value="Видалити" onclick="removeDish(`<%= dishes[i].DishName %>`, `<%= dishes[i].Image %>`, `<%= dishes[i].Price %>`, `<%= dishes[i].Description %>`, `addPosition<%= i %>`)">
+                                        </div>
+                                    </div>
+                                </div>
+                            <% } %>
+                        </div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="product-sesction-02 margin-top-50 none-display" style="height: 66%" id="editGoods">
+    <div class="container">
+
+        <div class="swin-sc swin-sc-product products-02 carousel-02">
+
+            <div class="products nav-slider slick-initialized slick-slider">
+                <div aria-live="polite" class="slick-list" ><div class="slick-track" style="opacity: 1" role="listbox"><div class="row slick-padding slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style=" left: 0px; top: 0px; z-index: 999; opacity: 1;" tabindex="-1" role="option" aria-describedby="slick-slide20">
+                            <% for(let i=0; i<dishes.length; i++){ %>
+                                <div class="col-md-4 col-sm-6 col-xs-12 dishesPositions" id="eidiDishPosition<%= i %>">
+                                    <div class="blog-item item swin-transition">
+                                        <div class="block-img"><img src="<%= dishes[i].Image %>" alt="" class="img img-responsive">
+                                            <div class="block-circle price-wrapper"><span class="price woocommerce-Price-amount amount"><span class="price-symbol">₴</span><%= dishes[i].Price %></span></div>
+                                            <div class="dish-description">
+                                                <a class="dish-description"><%= dishes[i].Description %></a>
+                                            </div>
+                                        </div>
+                                        <div class="block-content">
+                                            <h5 class="title"><a href="javascript:void(0)" tabindex="0"><%= dishes[i].DishName %></a></h5>
+                                        </div>
+                                        <div class="inStockDiv">
+                                            <label class="" for="inStock">Є в наявності</label>
+                                            <% if(dishes[i].InStock == true){ %>
+                                                <input type="checkbox" class="checked instockCheck" id="inStock" checked onchange="checkStock(this.classList, '<%= dishes[i].DishName %>', '<%= dishes[i].Description %>', '<%= dishes[i].Image %>')">
+                                            <% }else{ %>
+                                                <input type="checkbox" class="instockCheck" id="inStock" onchange="checkStock(this.classList, '<%= dishes[i].DishName %>', '<%= dishes[i].Description %>', '<%= dishes[i].Image %>')">
+                                            <% } %>
+                                        </div>
+                                        <div class="removeBtnDiv">
+                                            <input class="removeBtn" type="button" value="Редагувати" onclick="editDish(`<%= dishes[i].DishName %>`, `<%= dishes[i].Image %>`, `<%= dishes[i].Price %>`, `<%= dishes[i].Description %>`, `<%= dishes[i].Prioritet %>`)">
+                                        </div>
+                                    </div>
+                                </div>
+                            <% } %>
+                        </div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container-contact100 editDishForm none-display">
+    <div class="contact100-map" id="" data-map-x="40.722047" data-map-y="-73.986422" data-pin="images/icons/map-marker.png" data-scrollwhell="0" data-draggable="1"></div>
+
+    <div class="wrap-contact100">
+
+        <form class="contact100-form validate-form">
+        <span class="contact100-form-title">
+           Редагування страви
+        </span>
+
+            <div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Назва страви">
+                <span class="label-input100">Назва страви</span>
+                <input class="input100" type="text" id="dishNameEdit" name="name" value="" placeholder="Введіть назву страви">
+                <span class="focus-input100"></span>
+            </div>
+
+            <div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate = "Ціна">
+                <span class="label-input100">Ціна</span>
+                <input class="input100" type="number" name="price" id="priceDishEdit" value="" placeholder="Введіть ціну">
+                <span class="focus-input100"></span>
+            </div>
+
+            <div class="wrap-input100 validate-input" data-validate = "Опис">
+                <span class="label-input100">Опис</span>
+                <textarea class="input100" name="message" id="dishDescriptionEdit" placeholder="Короткий опис страви..."></textarea>
+                <span class="focus-input100"></span>
+            </div>
+
+            <div class="wrap-input100 rs1-wrap-input100 rs1-wrap-input100-100 validate-input" data-validate = "Пріорітет">
+                <span class="label-input100">Пріорітет страви у Вашому меню</span>
+                <input class="input100" type="number" name="prioritet" id="newDishPrioritet" value="" oninput="checkPrioritet(this)" placeholder="Введіть пріорітет страви (від 1 до 10)">
+                <span class="focus-input100"></span>
+            </div>
+
+            <img class="dishImage" id="dishImageEdit" src="" style="max-height: 200px !important; width: auto;">
+
+            <div class="upgradeImageOwner">
+                <div class="updateImageBlock">
+                    <input type="file" class="updateImageBtn" id="updateImageBtn">
+                    <a>Нова фотографія</a>
+                </div>
+            </div>
+
+            <div class="container-contact100-form-btn" id="btnSaveEditedBlock"></div>
+
+        </form>
+    </div>
+</div>
+
+<div class="container-contact100 margin-top-50 none-display" id="restaurantTimetable">
+    <div class="wrap-contact100">
+
+        <form class="contact100-form validate-form">
+				<span class="contact100-form-title">
+					Робочі дні
+				</span>
+
+            <div class="wrap-input100 rs1-wrap-input100 rs1-wrap-input100-100 validate-input" data-validate="Пн-Пт">
+                <span class="label-input100">Робочі дні</span>
+                <input class="input100" type="text" id="dishName" name="name" value="Пн-Пт" placeholder="Введіть назву страви" readonly>
+                <span class="focus-input100"></span>
+            </div>
+
+            <div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate = "Введіть ціну">
+                <span class="label-input100">Від</span>
+                <div class="selectTimeBlock">
+                    <select class="selectTime" id="selectTimeFromWork">
+                        <option>00:00</option>
+                        <option>00:30</option>
+                        <option>01:00</option>
+                        <option>01:30</option>
+                        <option>02:00</option>
+                        <option>02:30</option>
+                        <option>03:00</option>
+                        <option>03:30</option>
+                        <option>04:00</option>
+                        <option>04:30</option>
+                        <option>05:00</option>
+                        <option>05:30</option>
+                        <option>06:00</option>
+                        <option>06:30</option>
+                        <option>07:00</option>
+                        <option>07:30</option>
+                        <option>08:00</option>
+                        <option>08:30</option>
+                        <option>09:00</option>
+                        <option>09:30</option>
+                        <option>10:00</option>
+                        <option>10:30</option>
+                        <option>11:00</option>
+                        <option>11:30</option>
+                        <option>12:00</option>
+                        <option>12:30</option>
+                        <option>13:00</option>
+                        <option>13:30</option>
+                        <option>14:00</option>
+                        <option>14:30</option>
+                        <option>15:00</option>
+                        <option>15:30</option>
+                        <option>16:00</option>
+                        <option>16:30</option>
+                        <option>17:00</option>
+                        <option>17:30</option>
+                        <option>18:00</option>
+                        <option>18:30</option>
+                        <option>19:00</option>
+                        <option>19:30</option>
+                        <option>20:00</option>
+                        <option>20:30</option>
+                        <option>21:00</option>
+                        <option>21:30</option>
+                        <option>22:00</option>
+                        <option>22:30</option>
+                        <option>23:00</option>
+                        <option>23:30</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate = "Введіть ціну">
+                <span class="label-input100">До</span>
+                <div class="selectTimeBlock">
+                    <select class="selectTime" id="selectTimeToWork">
+                        <option>00:00</option>
+                        <option>00:30</option>
+                        <option>01:00</option>
+                        <option>01:30</option>
+                        <option>02:00</option>
+                        <option>02:30</option>
+                        <option>03:00</option>
+                        <option>03:30</option>
+                        <option>04:00</option>
+                        <option>04:30</option>
+                        <option>05:00</option>
+                        <option>05:30</option>
+                        <option>06:00</option>
+                        <option>06:30</option>
+                        <option>07:00</option>
+                        <option>07:30</option>
+                        <option>08:00</option>
+                        <option>08:30</option>
+                        <option>09:00</option>
+                        <option>09:30</option>
+                        <option>10:00</option>
+                        <option>10:30</option>
+                        <option>11:00</option>
+                        <option>11:30</option>
+                        <option>12:00</option>
+                        <option>12:30</option>
+                        <option>13:00</option>
+                        <option>13:30</option>
+                        <option>14:00</option>
+                        <option>14:30</option>
+                        <option>15:00</option>
+                        <option>15:30</option>
+                        <option>16:00</option>
+                        <option>16:30</option>
+                        <option>17:00</option>
+                        <option>17:30</option>
+                        <option>18:00</option>
+                        <option>18:30</option>
+                        <option>19:00</option>
+                        <option>19:30</option>
+                        <option>20:00</option>
+                        <option>20:30</option>
+                        <option>21:00</option>
+                        <option>21:30</option>
+                        <option>22:00</option>
+                        <option>22:30</option>
+                        <option>23:00</option>
+                        <option>23:30</option>
+                    </select>
+                </div>
+            </div>
+
+            <span class="contact100-form-title">
+					Вихідні дні
+				</span>
+
+            <div class="wrap-input100 rs1-wrap-input100 rs1-wrap-input100-100 validate-input" data-validate="Назва страви">
+                <span class="label-input100">Дні</span>
+                <input class="input100" type="text" id="daysOf" name="timetable" value="Сб-Нд" placeholder="Вихідні дні" readonly>
+                <span class="focus-input100"></span>
+            </div>
+
+            <div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate = "Введіть ціну">
+                <span class="label-input100">Від</span>
+                <div class="selectTimeBlock">
+                    <select class="selectTime" id="selectTimeFromDaysOff">
+                        <option>00:00</option>
+                        <option>00:30</option>
+                        <option>01:00</option>
+                        <option>01:30</option>
+                        <option>02:00</option>
+                        <option>02:30</option>
+                        <option>03:00</option>
+                        <option>03:30</option>
+                        <option>04:00</option>
+                        <option>04:30</option>
+                        <option>05:00</option>
+                        <option>05:30</option>
+                        <option>06:00</option>
+                        <option>06:30</option>
+                        <option>07:00</option>
+                        <option>07:30</option>
+                        <option>08:00</option>
+                        <option>08:30</option>
+                        <option>09:00</option>
+                        <option>09:30</option>
+                        <option>10:00</option>
+                        <option>10:30</option>
+                        <option>11:00</option>
+                        <option>11:30</option>
+                        <option>12:00</option>
+                        <option>12:30</option>
+                        <option>13:00</option>
+                        <option>13:30</option>
+                        <option>14:00</option>
+                        <option>14:30</option>
+                        <option>15:00</option>
+                        <option>15:30</option>
+                        <option>16:00</option>
+                        <option>16:30</option>
+                        <option>17:00</option>
+                        <option>17:30</option>
+                        <option>18:00</option>
+                        <option>18:30</option>
+                        <option>19:00</option>
+                        <option>19:30</option>
+                        <option>20:00</option>
+                        <option>20:30</option>
+                        <option>21:00</option>
+                        <option>21:30</option>
+                        <option>22:00</option>
+                        <option>22:30</option>
+                        <option>23:00</option>
+                        <option>23:30</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate = "Введіть ціну">
+                <span class="label-input100">До</span>
+                <div class="selectTimeBlock">
+                    <select class="selectTime" id="selectTimeToDaysOf">
+                        <option>00:00</option>
+                        <option>00:30</option>
+                        <option>01:00</option>
+                        <option>01:30</option>
+                        <option>02:00</option>
+                        <option>02:30</option>
+                        <option>03:00</option>
+                        <option>03:30</option>
+                        <option>04:00</option>
+                        <option>04:30</option>
+                        <option>05:00</option>
+                        <option>05:30</option>
+                        <option>06:00</option>
+                        <option>06:30</option>
+                        <option>07:00</option>
+                        <option>07:30</option>
+                        <option>08:00</option>
+                        <option>08:30</option>
+                        <option>09:00</option>
+                        <option>09:30</option>
+                        <option>10:00</option>
+                        <option>10:30</option>
+                        <option>11:00</option>
+                        <option>11:30</option>
+                        <option>12:00</option>
+                        <option>12:30</option>
+                        <option>13:00</option>
+                        <option>13:30</option>
+                        <option>14:00</option>
+                        <option>14:30</option>
+                        <option>15:00</option>
+                        <option>15:30</option>
+                        <option>16:00</option>
+                        <option>16:30</option>
+                        <option>17:00</option>
+                        <option>17:30</option>
+                        <option>18:00</option>
+                        <option>18:30</option>
+                        <option>19:00</option>
+                        <option>19:30</option>
+                        <option>20:00</option>
+                        <option>20:30</option>
+                        <option>21:00</option>
+                        <option>21:30</option>
+                        <option>22:00</option>
+                        <option>22:30</option>
+                        <option>23:00</option>
+                        <option>23:30</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="container-contact100-form-btn">
+                <button class="contact100-form-btn-timetable" type="button" onclick="checkTimetable()">
+						<span>
+							Зберегти
+							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+						</span>
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<footer class="footer-distributed">
+    <div class="footer-left">
+        <h3>Roki.<span>Taxi</span></h3>
+    </div>
+
+    <div class="footer-center">
+        <div>
+            <i class="fa"><svg version="1.1" id="Capa_1" width="30" x="0px" y="0px"
+                               viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+<circle style="fill:#2196F3;" cx="256" cy="256" r="256"/>
+                    <path style="fill:#FAFAFA;" d="M384,308.928c-27.616,0-53.952-6.016-78.24-17.888c-3.808-1.824-8.224-2.112-12.256-0.736
+	c-4.032,1.408-7.328,4.352-9.184,8.16l-11.52,23.84c-34.56-19.84-63.232-48.544-83.104-83.104l23.872-11.52
+	c3.84-1.856,6.752-5.152,8.16-9.184c1.376-4.032,1.12-8.448-0.736-12.256c-11.904-24.256-17.92-50.592-17.92-78.24
+	c0-8.832-7.168-16-16-16H128c-8.832,0-16,7.168-16,16c0,149.984,122.016,272,272,272c8.832,0,16-7.168,16-16v-59.072
+	C400,316.096,392.832,308.928,384,308.928z"/>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+</svg></i>
+            <p>+38 <%= contacts.phone %></p>
+        </div>
+
+        <div>
+            <i class=""><svg version="1.1" id="Capa_1" width="30" x="0px" y="0px"
+                             viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+<rect x="64" y="64" style="fill:#ECEFF1;" width="384" height="384"/>
+                    <polygon style="fill:#CFD8DC;" points="256,296.384 448,448 448,148.672 "/>
+                    <path style="fill:#F44336;" d="M464,64h-16L256,215.616L64,64H48C21.504,64,0,85.504,0,112v288c0,26.496,21.504,48,48,48h16V148.672
+	l192,147.68L448,148.64V448h16c26.496,0,48-21.504,48-48V112C512,85.504,490.496,64,464,64z"/>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+</svg></i>
+            <p><a href="mailto:<%= contacts.email %>"><%= contacts.email %></a></p>
+        </div>
+
+    </div>
+
+    <div class="footer-right">
+
+        <div class="footer-icons">
+
+            <a href="<%= contacts.facebook %>">
+                <svg version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                        <path style="fill:#1976D2;" d="M448,0H64C28.704,0,0,28.704,0,64v384c0,35.296,28.704,64,64,64h384c35.296,0,64-28.704,64-64V64
+	C512,28.704,483.296,0,448,0z" />
+                    <path style="fill:#FAFAFA;" d="M432,256h-80v-64c0-17.664,14.336-16,32-16h32V96h-64l0,0c-53.024,0-96,42.976-96,96v64h-64v80h64
+	v176h96V336h48L432,256z" />
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    </svg>
+            </a>
+            <a href="<%= contacts.instagram %>">
+                <svg version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512 512" style="" xml:space="preserve">
+                        <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="-46.0041" y1="634.1208" x2="-32.9334" y2="647.1917" gradientTransform="matrix(32 0 0 -32 1519 20757)">
+                            <stop offset="0" style="stop-color:#FFC107" />
+                            <stop offset="0.507" style="stop-color:#F44336" />
+                            <stop offset="0.99" style="stop-color:#9C27B0" />
+                        </linearGradient>
+                    <path style="fill:url(#SVGID_1_);" d="M352,0H160C71.648,0,0,71.648,0,160v192c0,88.352,71.648,160,160,160h192
+	c88.352,0,160-71.648,160-160V160C512,71.648,440.352,0,352,0z M464,352c0,61.76-50.24,112-112,112H160c-61.76,0-112-50.24-112-112
+	V160C48,98.24,98.24,48,160,48h192c61.76,0,112,50.24,112,112V352z" />
+                    <linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="-42.2971" y1="637.8279" x2="-36.6404" y2="643.4846" gradientTransform="matrix(32 0 0 -32 1519 20757)">
+                        <stop offset="0" style="stop-color:#FFC107" />
+                        <stop offset="0.507" style="stop-color:#F44336" />
+                        <stop offset="0.99" style="stop-color:#9C27B0" />
+                    </linearGradient>
+                    <path style="fill:url(#SVGID_2_);" d="M256,128c-70.688,0-128,57.312-128,128s57.312,128,128,128s128-57.312,128-128
+	S326.688,128,256,128z M256,336c-44.096,0-80-35.904-80-80c0-44.128,35.904-80,80-80s80,35.872,80,80
+	C336,300.096,300.096,336,256,336z" />
+                    <linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="-35.5456" y1="644.5793" x2="-34.7919" y2="645.3331" gradientTransform="matrix(32 0 0 -32 1519 20757)">
+                        <stop offset="0" style="stop-color:#FFC107" />
+                        <stop offset="0.507" style="stop-color:#F44336" />
+                        <stop offset="0.99" style="stop-color:#9C27B0" />
+                    </linearGradient>
+                    <circle style="fill:url(#SVGID_3_);" cx="393.6" cy="118.4" r="17.056" />
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    </svg>
+            </a>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<script src="/vendor/jquery/jquery-3.2.1.min.js"></script>
+<script src="/sweetAlert/sweetalert2.all.min.js"></script>
+<script src="/userPage/addDish/js/main.js"></script>
+<script src="/userPage/logOut.js"></script>
+<script src="/userPage/menu/main.js"></script>
+<script src="/userPage/removeDish/js/main.js"></script>
+<script src="/userPage/editDish/js/main.js"></script>
+<script src="/userPage/timetable/js/main.js"></script>
+</body>
+
+</html>

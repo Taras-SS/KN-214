@@ -1,0 +1,114 @@
+.menu-icon{
+    display: none;
+}
+.stick-top-menu{
+    z-index: 9999;
+    display: none;
+    width: 90%;
+    border-radius: 30px;
+    font-family: cursive;
+    font-size: 22px;
+    background-color: rgb(255, 212, 0);
+    color: white;
+    box-shadow: 0 0 30px rgba(255, 212, 0, 0.7);
+}
+
+.top-menu-points-block{
+    margin: 0 0 15px 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.top-menu-points-block div{
+    margin: 5px 60px 5px 0;
+    border: 1px solid transparent;
+    padding: 10px 20px 10px 20px;
+}
+
+.top-menu-points-block div a{
+    text-decoration: none;
+    color: white;
+}
+
+.top-menu-points-block div:hover, .top-menu-points-block div a:hover{
+     cursor: pointer;
+    border-radius: 13px;
+    color: rgb(255, 51, 153);
+}
+
+.top-menu-points-block div:last-child{
+    margin-right: 0;
+}
+
+.list-tp-menu{
+    display: none;
+    color: white;
+}
+
+.list-tp-menu li:hover{
+    color: rgb(255, 51, 153);
+}
+
+.show-services:hover .list-tp-menu{
+    position: absolute;
+    display: block;
+    background-color: rgba(255, 223, 0, 0.7);
+    z-index: 9999;
+    border-radius: 10px;
+    border: 1px solid rgb(255, 212, 0);
+}
+
+.show-services:hover .list-tp-menu li{
+    margin: 0 15px 8px 0;
+    color: rgb(255, 51, 153);
+}
+
+.list-tp-menu li a:hover{
+    color: rgb(255, 51, 153);
+}
+
+@media (max-width: 697px) and (min-width: 632px){
+    .stick-top-menu{
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 631px) {
+    .stick-top-menu{
+        width: 100%;
+        border-radius: 0;
+    }
+    .menu-icon ~ div{
+        display: none;
+    }
+
+    .menu-icon{
+        display: block;
+        width: 100%;
+        float: left;
+        cursor: auto !important;
+    }
+
+
+    .menu-icon img{
+        height: 40px;
+        width: 40px;
+        margin-left: 10px;
+    }
+
+    .menu-icon img:hover{
+        cursor: pointer;
+    }
+
+    .top-menu-points-block div{
+        margin:  0;
+        border: 1px solid transparent;
+        padding: 7px 20px 7px 20px;
+    }
+}
+
+.sticky {
+    position: sticky;
+    top: 0;
+}

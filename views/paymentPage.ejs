@@ -1,0 +1,344 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Rancho" rel="stylesheet">
+    <link rel="stylesheet" href="/form/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/form/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <link rel="stylesheet" href="/login/css/main.css">
+    <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/form/css/util.css">
+    <link rel="stylesheet" href="/form/css/main.css">
+    <link rel="stylesheet" href="/vendor/animate/animate.css">
+    <link rel="stylesheet" href="/mainPage/css/style.css">
+    <link rel="stylesheet" href="/mainPage/css/footer.css">
+    <link rel="stylesheet" href="/login/css/util.css">
+    <link rel="stylesheet" href="/payment/css/main.css">
+
+    <link rel="shortcut icon" href="/images/logo.png" type="image/x-icon"/>
+    <title>Roki Taxi</title>
+</head>
+
+<body>
+<header class="header">
+    <a href="/main" class="logo"><img src="/images/logo.png"></a>
+    <div class="header-right">
+        <a>
+            <% if(login == 1){ %>
+                <input type="button" value="Аккаунт" onclick="window.location.href = '/userPage'">
+            <% }else{ %>
+                <input type="button" value="Вхід" id="showLoginForm">
+            <% } %>
+        </a>
+    </div>
+</header>
+
+
+<div class="container-contact100" style="min-height: 66vh">
+    <div class="contact100-map" id="" data-map-x="40.722047" data-map-y="-73.986422" data-pin="images/icons/map-marker.png" data-scrollwhell="0" data-draggable="1"></div>
+
+    <div class="wrap-contact100">
+
+        <form class="contact100-form validate-form">
+				<span class="contact100-form-title">
+					Адрес доставки
+				</span>
+
+            <div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Ім'я">
+                <span class="label-input100">Введіть Ваше ім'я</span>
+                <input class="input100" type="text" id="clientName" name="name" placeholder="Ваше ім'я">
+                <span class="focus-input100"></span>
+            </div>
+
+            <div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate = "Телефон">
+                <span class="label-input100">Номер телефону</span>
+                <input class="input100" type="text" name="phone" id="clientPhone" placeholder="Номер телефону">
+                <span class="focus-input100"></span>
+            </div>
+
+            <div class="wrap-input100 validate-input" data-validate = "Куди">
+                <span class="label-input100">Куди</span>
+                <input class="input100" name="address" id="deliverTo" placeholder="Місто\вулиця\будинок...">
+                <span class="focus-input100"></span>
+            </div>
+
+            <div class="paymentType">
+                <input type="checkbox" class="paymentTypeCheck no-checked" id="cashPay" onchange="checkPayType('#cashPay')">
+                <label for="cashPay">Оплата готівкою</label>
+            </div>
+
+            <div class="paymentType">
+                <input type="checkbox" class="paymentTypeCheck no-checked" id="onlinePay" onchange="checkPayType('#onlinePay')">
+                <label for="onlinePay">Онлайн оплата</label>
+            </div>
+
+            <div class="container-contact100-form-btn" id="payByCashButton">
+                <button class="contact100-form-btn" type="button" onclick="checkPaymentData()">Далі</button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+<div class="liqpayBlock">
+    <div class="liqpayOwner">
+        <a class="cancelPay">Назад</a>
+        <form method="POST" class="" id="liqPayForm" action="https://www.liqpay.ua/api/3/checkout" accept-charset="utf-8">
+            <input type="hidden" id="payData" name="data" value="">
+            <input type="hidden" id="paySignature" name="signature" value="">
+            <input type="image" src="//static.liqpay.ua/buttons/p1ru.radius.png"/>
+        </form>
+    </div>
+</div>
+
+<div class="log-form-withBackground">
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <svg id="closeLogin" class="close-login" height="20px" onclick="hideLogForm()" viewBox="0 0 365.71733 365" width="20px" ><g fill="#f44336"><path d="m356.339844 296.347656-286.613282-286.613281c-12.5-12.5-32.765624-12.5-45.246093 0l-15.105469 15.082031c-12.5 12.503906-12.5 32.769532 0 45.25l286.613281 286.613282c12.503907 12.5 32.769531 12.5 45.25 0l15.082031-15.082032c12.523438-12.480468 12.523438-32.75.019532-45.25zm0 0"/><path d="m295.988281 9.734375-286.613281 286.613281c-12.5 12.5-12.5 32.769532 0 45.25l15.082031 15.082032c12.503907 12.5 32.769531 12.5 45.25 0l286.632813-286.59375c12.503906-12.5 12.503906-32.765626 0-45.246094l-15.082032-15.082032c-12.5-12.523437-32.765624-12.523437-45.269531-.023437zm0 0"/></g></svg>
+                <div class="login100-pic js-tilt" data-tilt>
+                    <img src="/images/img-01.png" alt="IMG">
+                </div>
+
+                <form class="login100-form validate-form">
+					<span class="login100-form-title">
+						Система входу
+					</span>
+
+                    <div class="wrap-input100 validate-input">
+                        <input class="input100" id="logInput" type="text" name="email" placeholder="Логін">
+                    </div>
+
+                    <div class="wrap-input100 validate-input">
+                        <input class="input100" id="passInput" type="password" name="pass" placeholder="Пароль">
+                    </div>
+
+                    <div class="container-login100-form-btn">
+                        <button class="login100-form-btn" type="button">
+                            Вхід
+                        </button>
+                    </div>
+                    <div class="text-center p-t-136 showCancelBtn" style="visibility: hidden">
+                        <a onclick="hideLogForm()">Вихід</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer-distributed">
+    <div class="footer-left">
+        <h3>Roki.<span>Taxi</span></h3>
+    </div>
+
+    <div class="footer-center">
+
+        <div>
+            <i class="fa"><svg version="1.1" id="Capa_1" width="30" x="0px" y="0px"
+                               viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+<circle style="fill:#2196F3;" cx="256" cy="256" r="256"/>
+                    <path style="fill:#FAFAFA;" d="M384,308.928c-27.616,0-53.952-6.016-78.24-17.888c-3.808-1.824-8.224-2.112-12.256-0.736
+	c-4.032,1.408-7.328,4.352-9.184,8.16l-11.52,23.84c-34.56-19.84-63.232-48.544-83.104-83.104l23.872-11.52
+	c3.84-1.856,6.752-5.152,8.16-9.184c1.376-4.032,1.12-8.448-0.736-12.256c-11.904-24.256-17.92-50.592-17.92-78.24
+	c0-8.832-7.168-16-16-16H128c-8.832,0-16,7.168-16,16c0,149.984,122.016,272,272,272c8.832,0,16-7.168,16-16v-59.072
+	C400,316.096,392.832,308.928,384,308.928z"/>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+</svg></i>
+            <p>+38 <%= contacts.phone %></p>
+        </div>
+
+        <div>
+            <i class=""><svg version="1.1" id="Capa_1" width="30" x="0px" y="0px"
+                             viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+<rect x="64" y="64" style="fill:#ECEFF1;" width="384" height="384"/>
+                    <polygon style="fill:#CFD8DC;" points="256,296.384 448,448 448,148.672 "/>
+                    <path style="fill:#F44336;" d="M464,64h-16L256,215.616L64,64H48C21.504,64,0,85.504,0,112v288c0,26.496,21.504,48,48,48h16V148.672
+	l192,147.68L448,148.64V448h16c26.496,0,48-21.504,48-48V112C512,85.504,490.496,64,464,64z"/>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+</svg></i>
+            <p><a href="mailto:<%= contacts.email %>"><%= contacts.email %></a></p>
+        </div>
+
+    </div>
+
+    <div class="footer-right">
+
+        <div class="footer-icons">
+
+            <a href="<%= contacts.facebook %>">
+                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                        <path style="fill:#1976D2;" d="M448,0H64C28.704,0,0,28.704,0,64v384c0,35.296,28.704,64,64,64h384c35.296,0,64-28.704,64-64V64
+	C512,28.704,483.296,0,448,0z" />
+                    <path style="fill:#FAFAFA;" d="M432,256h-80v-64c0-17.664,14.336-16,32-16h32V96h-64l0,0c-53.024,0-96,42.976-96,96v64h-64v80h64
+	v176h96V336h48L432,256z" />
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    </svg>
+            </a>
+            <a href="<%= contacts.instagram %>">
+                <svg version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512 512" style="" xml:space="preserve">
+                        <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="-46.0041" y1="634.1208" x2="-32.9334" y2="647.1917" gradientTransform="matrix(32 0 0 -32 1519 20757)">
+                            <stop offset="0" style="stop-color:#FFC107" />
+                            <stop offset="0.507" style="stop-color:#F44336" />
+                            <stop offset="0.99" style="stop-color:#9C27B0" />
+                        </linearGradient>
+                    <path style="fill:url(#SVGID_1_);" d="M352,0H160C71.648,0,0,71.648,0,160v192c0,88.352,71.648,160,160,160h192
+	c88.352,0,160-71.648,160-160V160C512,71.648,440.352,0,352,0z M464,352c0,61.76-50.24,112-112,112H160c-61.76,0-112-50.24-112-112
+	V160C48,98.24,98.24,48,160,48h192c61.76,0,112,50.24,112,112V352z" />
+                    <linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="-42.2971" y1="637.8279" x2="-36.6404" y2="643.4846" gradientTransform="matrix(32 0 0 -32 1519 20757)">
+                        <stop offset="0" style="stop-color:#FFC107" />
+                        <stop offset="0.507" style="stop-color:#F44336" />
+                        <stop offset="0.99" style="stop-color:#9C27B0" />
+                    </linearGradient>
+                    <path style="fill:url(#SVGID_2_);" d="M256,128c-70.688,0-128,57.312-128,128s57.312,128,128,128s128-57.312,128-128
+	S326.688,128,256,128z M256,336c-44.096,0-80-35.904-80-80c0-44.128,35.904-80,80-80s80,35.872,80,80
+	C336,300.096,300.096,336,256,336z" />
+                    <linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="-35.5456" y1="644.5793" x2="-34.7919" y2="645.3331" gradientTransform="matrix(32 0 0 -32 1519 20757)">
+                        <stop offset="0" style="stop-color:#FFC107" />
+                        <stop offset="0.507" style="stop-color:#F44336" />
+                        <stop offset="0.99" style="stop-color:#9C27B0" />
+                    </linearGradient>
+                    <circle style="fill:url(#SVGID_3_);" cx="393.6" cy="118.4" r="17.056" />
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    </svg>
+            </a>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<script src="/vendor/jquery/jquery-3.2.1.min.js"></script>
+<script src="/vendor/tilt/tilt.jquery.min.js"></script>
+<script src="/sweetAlert/sweetalert2.all.min.js"></script>
+<script >
+    $('.js-tilt').tilt({
+        scale: 1.1
+    })
+</script>
+<script src="/login/js/main.js"></script>
+<script src="/payment/js/main.js"></script>
+
+
+</body>
+
+</html>

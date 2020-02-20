@@ -1,0 +1,29 @@
+{
+  "name": "foodDelivery",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@sendgrid/mail": "^6.5.1",
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "cookie-session": "^1.4.0",
+    "crypto": "^1.0.1",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
+    "liqpay": "0.0.1",
+    "mongodb": "^3.5.2",
+    "nodemailer": "^6.4.2",
+    "sha1": "^1.1.1",
+    "url": "^0.11.0"
+  }
+}

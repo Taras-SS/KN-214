@@ -1,0 +1,79 @@
+#uploadImageForm{
+    margin-left: auto;
+    margin-right: auto;
+    width: 499px;
+    border: 4px dashed rgb(255, 204, 0);
+    margin-top: -15px;
+}
+#uploadImageForm:hover{
+    cursor: pointer;
+}
+#uploadImageForm p{
+     width: 100%;
+  height: 100%;
+    font-family: cursive;
+    font-size: 20px;
+  text-align: center;
+  line-height: 170px;
+  color: black;
+    margin-bottom: 0 !important;
+    margin-top: 2px !important;
+}
+#uploadImageForm input{
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  width: 492px;
+  height: 239px;
+  outline: none;
+  opacity: 0;
+}
+#uploadImageForm button{
+  margin: 0;
+  color: #fff;
+  background: rgb(255, 0, 102);
+  border: none;
+  width: 500px;
+  height: 35px;
+  margin-top: -50px;
+  margin-left: -4px;
+  border-radius: 4px;
+  border: 0;
+  transition: all .2s ease;
+  outline: none;
+}
+#uploadImageForm button:hover{
+  cursor: pointer;
+    box-shadow: 0 0 30px rgba(255, 0, 102, 0.7);
+}
+#uploadImageForm button:active{
+  border:0;
+}
+.dishImage{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+@media (max-width: 539px) and (min-width: 321px){
+    #uploadImageForm{
+        height: 300px;
+    }
+    #uploadImageForm input{
+        height: 325px;
+    }
+    #uploadImageForm, #uploadImageForm button, #uploadImageForm input{
+        width: 300px;
+    }
+}
+
+@media (max-width: 320px) {
+    #uploadImageForm, #uploadImageForm button, #uploadImageForm input{
+        width: 280px;
+    }
+    #uploadImageForm{
+        height: 270px;
+    }
+    #uploadImageForm input{
+        height: 295px;
+    }
+}

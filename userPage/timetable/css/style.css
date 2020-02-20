@@ -1,0 +1,12 @@
+.rs1-wrap-input100-100{
+    width: 100%;
+}
+.selectTimeBlock{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.selectTimeBlock .selectTime{
+    width: 100%;
+    border: 0;
+}

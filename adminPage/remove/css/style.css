@@ -1,0 +1,588 @@
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+    padding: 0
+}
+
+b {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400
+}
+
+
+a:active,
+a:hover {
+    outline: 0
+}
+
+::-moz-focus-inner {
+    border: 0;
+    padding: 0
+}
+
+:focus {
+    outline: 0
+}
+
+[tabindex="-1"]:focus {
+    outline: 0!important
+}
+
+[role=button],
+a {
+    -ms-touch-action: manipulation;
+    touch-action: manipulation
+}
+
+header,
+menu,
+section {
+    display: block
+}
+
+[hidden] {
+    display: none
+}
+
+img {
+    border: 0;
+    height: auto;
+    max-width: 100%
+}
+
+@media print {
+    *,
+    :after,
+    :before {
+        background: 0 0!important;
+        box-shadow: none!important;
+        color: #000!important;
+        text-shadow: none!important
+    }
+    a,
+    a:visited {
+        text-decoration: underline
+    }
+    a[href]:after {
+        content: " (" attr(href) ")"
+    }
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+        content: ""
+    }
+    img {
+        page-break-inside: avoid
+    }
+    img {
+        max-width: 100%!important
+    }
+    h2,
+    h3,
+    p {
+        orphans: 3;
+        widows: 3
+    }
+    h2,
+    h3 {
+        page-break-after: avoid
+    }
+}
+
+@font-face {
+    font-family: SimonCircularPro-Black;
+    font-style: normal;
+    font-weight: 400;
+    src: local("Simon Circular Pro"), local("SimonCircularPro"), url(https://cdn-eu-ec.yottaa.net/555a305b2bb0ac71b9002d22/a9ba3bb0c545013408bb026173a6dedd.yottaa.net/v~4b.1a0.0.0/fonts/simon-circular-pro-black-c.woff2?yocs=B_D_G_) format("woff2"), url(https://cdn-eu-ec.yottaa.net/555a305b2bb0ac71b9002d22/a9ba3bb0c545013408bb026173a6dedd.yottaa.net/v~4b.1a0.0.0/fonts/simon-circular-pro-black-c.woff?yocs=B_D_G_) format("woff")
+}
+
+@font-face {
+    font-family: SimonCircularPro-Blackitalic;
+    font-style: normal;
+    font-weight: 400;
+    src: local("Simon Circular Pro"), local("SimonCircularPro"), url(https://cdn-eu-ec.yottaa.net/555a305b2bb0ac71b9002d22/a9ba3bb0c545013408bb026173a6dedd.yottaa.net/v~4b.1a0.0.0/fonts/simon-circular-pro-blackitalic-c.woff2?yocs=B_D_G_) format("woff2"), url(https://cdn-eu-ec.yottaa.net/555a305b2bb0ac71b9002d22/a9ba3bb0c545013408bb026173a6dedd.yottaa.net/v~4b.1a0.0.0/fonts/simon-circular-pro-blackitalic-c.woff?yocs=B_D_G_) format("woff")
+}
+
+@font-face {
+    font-family: SimonCircularPro-Bold;
+    font-style: normal;
+    font-weight: 400;
+    src: local("Simon Circular Pro"), local("SimonCircularPro"), url(https://cdn-eu-ec.yottaa.net/555a305b2bb0ac71b9002d22/a9ba3bb0c545013408bb026173a6dedd.yottaa.net/v~4b.1a0.0.0/fonts/simon-circular-pro-bold-c.woff2?yocs=B_D_G_) format("woff2"), url(https://cdn-eu-ec.yottaa.net/555a305b2bb0ac71b9002d22/a9ba3bb0c545013408bb026173a6dedd.yottaa.net/v~4b.1a0.0.0/fonts/simon-circular-pro-bold-c.woff?yocs=B_D_G_) format("woff")
+}
+
+@font-face {
+    font-family: SimonCircularPro-Bolditalic;
+    font-style: normal;
+    font-weight: 400;
+    src: local("Simon Circular Pro"), local("SimonCircularPro"), url(https://cdn-eu-ec.yottaa.net/555a305b2bb0ac71b9002d22/a9ba3bb0c545013408bb026173a6dedd.yottaa.net/v~4b.1a0.0.0/fonts/simon-circular-pro-bolditalic-c.woff2?yocs=B_D_G_) format("woff2"), url(https://cdn-eu-ec.yottaa.net/555a305b2bb0ac71b9002d22/a9ba3bb0c545013408bb026173a6dedd.yottaa.net/v~4b.1a0.0.0/fonts/simon-circular-pro-bolditalic-c.woff?yocs=B_D_G_) format("woff")
+}
+
+@font-face {
+    font-family: SimonCircularPro-Book;
+    font-style: normal;
+    font-weight: 400;
+    src: local("Simon Circular Pro"), local("SimonCircularPro"), url(https://cdn-eu-ec.yottaa.net/555a305b2bb0ac71b9002d22/a9ba3bb0c545013408bb026173a6dedd.yottaa.net/v~4b.1a0.0.0/fonts/simon-circular-pro-book-c.woff2?yocs=B_D_G_) format("woff2"), url(https://cdn-eu-ec.yottaa.net/555a305b2bb0ac71b9002d22/a9ba3bb0c545013408bb026173a6dedd.yottaa.net/v~4b.1a0.0.0/fonts/simon-circular-pro-book-c.woff?yocs=B_D_G_) format("woff")
+}
+
+@font-face {
+    font-family: SimonCircularPro-Bookitalic;
+    font-style: normal;
+    font-weight: 400;
+    src: local("Simon Circular Pro"), local("SimonCircularPro"), url(https://cdn-eu-ec.yottaa.net/555a305b2bb0ac71b9002d22/a9ba3bb0c545013408bb026173a6dedd.yottaa.net/v~4b.1a0.0.0/fonts/simon-circular-pro-bookitalic-c.woff2?yocs=B_D_G_) format("woff2"), url(https://cdn-eu-ec.yottaa.net/555a305b2bb0ac71b9002d22/a9ba3bb0c545013408bb026173a6dedd.yottaa.net/v~4b.1a0.0.0/fonts/simon-circular-pro-bookitalic-c.woff?yocs=B_D_G_) format("woff")
+}
+
+@font-face {
+    font-family: SimonCircularPro-Medium;
+    font-style: normal;
+    font-weight: 400;
+    src: local("Simon Circular Pro"), local("SimonCircularPro"), url(https://cdn-eu-ec.yottaa.net/555a305b2bb0ac71b9002d22/a9ba3bb0c545013408bb026173a6dedd.yottaa.net/v~4b.1a0.0.0/fonts/simon-circular-pro-medium-c.woff2?yocs=B_D_G_) format("woff2"), url(https://cdn-eu-ec.yottaa.net/555a305b2bb0ac71b9002d22/a9ba3bb0c545013408bb026173a6dedd.yottaa.net/v~4b.1a0.0.0/fonts/simon-circular-pro-medium-c.woff?yocs=B_D_G_) format("woff")
+}
+
+@font-face {
+    font-family: SimonCircularPro-Mediumitalic;
+    font-style: normal;
+    font-weight: 400;
+    src: local("Simon Circular Pro"), local("SimonCircularPro"), url(https://cdn-eu-ec.yottaa.net/555a305b2bb0ac71b9002d22/a9ba3bb0c545013408bb026173a6dedd.yottaa.net/v~4b.1a0.0.0/fonts/simon-circular-pro-mediumitalic-c.woff2?yocs=B_D_G_) format("woff2"), url(https://cdn-eu-ec.yottaa.net/555a305b2bb0ac71b9002d22/a9ba3bb0c545013408bb026173a6dedd.yottaa.net/v~4b.1a0.0.0/fonts/simon-circular-pro-mediumitalic-c.woff?yocs=B_D_G_) format("woff")
+}
+
+@font-face {
+    font-family: SimonCircularPro-Light;
+    font-style: normal;
+    font-weight: 400;
+    src: local("Simon Circular Pro"), local("SimonCircularPro"), url(https://cdn-eu-ec.yottaa.net/555a305b2bb0ac71b9002d22/a9ba3bb0c545013408bb026173a6dedd.yottaa.net/v~4b.1a0.0.0/fonts/simon-circular-pro-light-c.woff2?yocs=B_D_G_) format("woff2"), url(https://cdn-eu-ec.yottaa.net/555a305b2bb0ac71b9002d22/a9ba3bb0c545013408bb026173a6dedd.yottaa.net/v~4b.1a0.0.0/fonts/simon-circular-pro-light-c.woff?yocs=B_D_G_) format("woff")
+}
+
+@font-face {
+    font-family: SimonCircularPro-Lightitalic;
+    font-style: normal;
+    font-weight: 400;
+    src: local("Simon Circular Pro"), local("SimonCircularPro"), url(https://cdn-eu-ec.yottaa.net/555a305b2bb0ac71b9002d22/a9ba3bb0c545013408bb026173a6dedd.yottaa.net/v~4b.1a0.0.0/fonts/simon-circular-pro-Lightitalic-c.woff2?yocs=B_D_G_) format("woff2"), url(https://cdn-eu-ec.yottaa.net/555a305b2bb0ac71b9002d22/a9ba3bb0c545013408bb026173a6dedd.yottaa.net/v~4b.1a0.0.0/fonts/simon-circular-pro-Lightitalic-c.woff?yocs=B_D_G_) format("woff")
+}
+
+h1 {
+    font-size: 39.713px;
+    font-size: 2.29824rem
+}
+
+h1,
+h2 {
+    margin-bottom: 11.083px;
+    margin-bottom: .6414rem
+}
+
+h2 {
+    font-size: 33.094px;
+    font-size: 1.9152rem
+}
+
+.header-md,
+h3 {
+    font-size: 27.578px;
+    font-size: 1.596rem
+}
+
+.header-md,
+h3,
+h4 {
+    margin-bottom: 11.083px;
+    margin-bottom: .6414rem
+}
+
+h4 {
+    font-size: 22.982px;
+    font-size: 1.33rem
+}
+
+h5 {
+    font-size: 19.151px;
+    font-size: 1.10833rem
+}
+
+h5,
+h6,
+p {
+    margin-bottom: 11.083px;
+    margin-bottom: .6414rem
+}
+
+h6,
+p {
+    font-size: 15.959px;
+    font-size: .92361rem
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 400;
+    line-height: 1
+}
+
+.img-full {
+    display: block;
+    height: 319px;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.img-lazy {
+    display: block
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-left: .86806rem;
+    padding-right: 15px;
+    padding-right: .86806rem
+}
+
+.container:after {
+    content: "";
+    display: table;
+    clear: both
+}
+
+@media (min-width:544px) {
+    .container {
+        max-width: 576px
+    }
+}
+
+@media (min-width:768px) {
+    .container {
+        max-width: 720px
+    }
+}
+
+@media (min-width:992px) {
+    .container {
+        max-width: 940px
+    }
+}
+
+@media (min-width:1200px) {
+    .container {
+        max-width: 1140px
+    }
+}
+
+.row {
+    margin-left: -15px;
+    margin-left: -.86806rem;
+    margin-right: -15px;
+    margin-right: -.86806rem
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both
+}
+
+.col-md-1,
+.col-md-10,
+.col-md-11,
+.col-md-12,
+.col-md-2,
+.col-md-3,
+.col-md-4,
+.col-md-5,
+.col-md-6,
+.col-md-7,
+.col-md-8,
+.col-md-9 {
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-left: .86806rem;
+    padding-right: 15px;
+    padding-right: .86806rem
+}
+
+@media (min-width:768px) {
+    .col-md-1,
+    .col-md-10,
+    .col-md-11,
+    .col-md-12,
+    .col-md-2,
+    .col-md-3,
+    .col-md-4,
+    .col-md-5,
+    .col-md-6,
+    .col-md-7,
+    .col-md-8,
+    .col-md-9 {
+        float: left
+    }
+    .col-md-1 {
+        width: 8.33333%
+    }
+    .col-md-2 {
+        width: 16.66667%
+    }
+    .col-md-3 {
+        width: 25%
+    }
+    .col-md-4 {
+        width: 33.33333%
+    }
+    .col-md-5 {
+        width: 41.66667%
+    }
+    .col-md-6 {
+        width: 50%
+    }
+    .col-md-7 {
+        width: 58.33333%
+    }
+    .col-md-8 {
+        width: 66.66667%
+    }
+    .col-md-9 {
+        width: 75%
+    }
+    .col-md-10 {
+        width: 83.33333%
+    }
+    .col-md-11 {
+        width: 91.66667%
+    }
+    .col-md-12 {
+        width: 100%
+    }
+}
+
+@keyframes a {
+    0%,
+    20%,
+    50%,
+    80%,
+    to {
+        transform: translateY(0)
+    }
+    40% {
+        transform: translateY(-30px)
+    }
+    60% {
+        transform: translateY(-15px)
+    }
+}
+
+.simon-section {
+    padding: 29.376px 0 33.094px;
+    padding: 1.7rem 0 1.9152rem
+}
+
+@media (min-width:544px) {
+    .simon-section {
+        padding: 3.30947rem 0
+    }
+}
+
+.simon-section-header {
+    font-size: 22.982px;
+    font-size: 1.33rem;
+    margin-bottom: 19.151px;
+    margin-bottom: 1.10833rem;
+    text-align: center
+}
+
+@media (min-width:768px) {
+    .simon-section-header {
+        text-align: left
+    }
+}
+
+@media (min-width:992px) {
+    .simon-section-header {
+        font-size: 1.596rem
+    }
+}
+
+@keyframes b {
+    50% {
+        border-color: transparent
+    }
+}
+
+@keyframes c {
+    0% {
+        transform: scaleY(0)
+    }
+    to {
+        transform: scaleY(1)
+    }
+}
+
+@keyframes d {
+    0% {
+        transform: scaleY(1)
+    }
+    to {
+        transform: scaleY(0)
+    }
+}
+
+@keyframes e {
+    0% {
+        transform: translateY(10px) scaleX(0)
+    }
+    30% {
+        transform: translateY(10px) scaleX(1)
+    }
+    40% {
+        transform: translateY(10px) scaleX(1)
+    }
+    60% {
+        transform: translateY(74px) scaleX(1)
+    }
+    to {
+        transform: translateY(74px) scaleX(1)
+    }
+}
+
+@keyframes f {
+    0% {
+        transform: translateY(0)
+    }
+    to {
+        transform: translateY(-74px)
+    }
+}
+
+img[src="https://adc3ef35f321fe6e725a-fb8aac3b3bf42afe824f73b606f0aa4c.ssl.cf1.rackcdn.com/Simon%20Website/MAPS/infobox-close.jpg"] {
+    display: none
+}
+
+@keyframes g {
+    0% {
+        opacity: 0;
+        transform: translateY(-1em)
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+
+@keyframes h {
+    0% {
+        transform: scale(1)
+    }
+    75% {
+        transform: scale(1.05)
+    }
+    87.5% {
+        opacity: 1
+    }
+    to {
+        transform: scale(1);
+        opacity: 0
+    }
+    to {
+        stroke-dashoffset: 0
+    }
+}
+
+.dining .simon-section-header {
+    margin-bottom: 31.366px;
+    margin-bottom: 1.8152rem
+}
+
+.dining-info-desc {
+    padding: 0 15px
+}
+
+.dining-info .simon-section-header {
+    margin-bottom: 5px;
+    font-family: cursive;
+}
+
+.dining-info-desc {
+    padding-top: 33.094px;
+    padding-top: 1.9152rem;
+    font-family: cursive;
+}
+
+@media (max-width:767px) {
+    .md-col-no-gutter {
+        padding-right: 0;
+        padding-left: 0
+    }
+}
+
+.no-gutter {
+    padding-left: 0!important;
+    padding-right: 0!important
+}
+
+.no-gutter .row {
+    margin-left: 0;
+    margin-right: 0
+}
+
+@media (max-width:543px) {
+    .no-gutter-mobile {
+        padding-left: 0!important;
+        padding-right: 0!important
+    }
+    .no-gutter-mobile .row {
+        margin-left: 0;
+        margin-right: 0
+    }
+}
+
+.center {
+    text-align: center!important
+}
+
+.img-full.dining-info-img:hover, .simon-section-header.header-md.center:hover{
+    cursor: pointer;
+}
+
+.timetable{
+    width: max-content;
+    font-family: cursive;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.removbeBtnDiv{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.removbeBtnDiv input{
+    color: white;
+    border: 0;
+    background-color: rgb(255, 204, 0);
+    height: 40px;
+    font-family: cursive;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.removbeBtnDiv input:hover{
+    box-shadow: 0 14px 20px rgba(255, 204, 0, 0.2), 0 5px 10px rgba(255, 204, 0, 0.4);
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+}
+
+.menuList{
+    background-color: transparent;
+}

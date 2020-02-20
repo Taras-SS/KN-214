@@ -1,0 +1,267 @@
+html {
+  overflow-x: hidden
+}
+
+body {
+  background-color: #fff;
+  font-family: 'Merriweather Sans', sans-serif;
+  font-weight: 400;
+  line-height: 1.714;
+  color: #616f7d;
+  overflow-x: hidden
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1
+}
+
+.slick-slide {
+  position: relative
+}
+
+@-webkit-keyframes sk-circleBounceDelay {
+  0%,
+  100%,
+  80% {
+    -webkit-transform: scale(0);
+    transform: scale(0)
+  }
+  40% {
+    -webkit-transform: scale(1);
+    transform: scale(1)
+  }
+}
+
+@keyframes sk-circleBounceDelay {
+  0%,
+  100%,
+  80% {
+    -webkit-transform: scale(0);
+    transform: scale(0)
+  }
+  40% {
+    -webkit-transform: scale(1);
+    transform: scale(1)
+  }
+}
+
+header {
+/*  position: absolute; */
+  z-index: 2;
+  width: 100%;
+  top: 0
+}
+
+
+.header-top {
+  color: #616f7d;
+  background-color: transparent;
+  height: 35px;
+  border: none;
+  border-bottom: 1px solid #eaeaea
+}
+
+.header-top a {
+  color: #616f7d
+}
+
+.header-top:before {
+  content: '';
+  clear: both
+}
+
+.header-top:after {
+  content: '';
+  display: table;
+  clear: both
+}
+
+.header-top .item {
+  display: inline-block;
+  line-height: 35px;
+  margin-right: 15px;
+  font-size: 13px
+}
+
+.header-top .item i {
+  margin-right: 7px
+}
+
+.header-main {
+  background-color: #fff;
+  height: 100px;
+  -ms-transition: all .3s ease;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease
+}
+
+.header-main .header-logo {
+  width: 250px;
+  min-height: 100px;
+  float: left;
+  position: relative;
+  -ms-transition: all .3s ease;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease
+}
+
+.header-main .logo {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%)
+}
+
+.header-main .main-nav-wrapper {
+  float: right
+}
+
+#main-nav>li {
+  display: block;
+  padding: 0 15px
+}
+
+#main-nav>li>a {
+  line-height: 80px;
+  color: #29272e;
+  text-transform: uppercase;
+  -ms-transition: all .3s ease;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease
+}
+
+#main-nav>li a:focus,
+#main-nav>li>a:hover {
+  background-color: transparent
+}
+
+#main-nav>li>a {
+  position: relative
+}
+
+#main-nav>li>a:after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  left: 15px;
+  width: 0;
+  top: 50%;
+  margin-top: 15px;
+  background-color: #f15f2a;
+  -ms-transition: all .3s ease;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease
+}
+
+#main-nav>li:hover>a {
+  position: relative
+}
+
+#main-nav>li:hover>a:after {
+  width: 60px
+}
+
+#main-nav>li.active>a {
+  position: relative;
+  background-color: transparent
+}
+
+#main-nav>li.active>a:after {
+  width: 60px
+}
+
+.top-header {
+  position: relative
+}
+
+.top-header .slick-slide {
+  position: relative
+}
+
+.top-header .slide-content {
+  position: absolute;
+  top: 120px;
+  left: 0;
+  width: 100%;
+  z-index: 1
+}
+
+.top-header .slide-content .slide-icon {
+  margin: 15px auto
+}
+
+.top-header .slide-content .swin-sc-title {
+  margin-bottom: 40px
+}
+
+.top-header .slide-content .swin-sc-title .title {
+  margin: 0;
+  line-height: 1
+}
+
+.top-header .slide-content .slide-text-01 {
+  position: relative;
+  font-weight: 700;
+  font-size: 16px;
+  color: #f15f2a;
+  position: relative;
+  text-transform: uppercase;
+  display: inline-block;
+  line-height: 1
+}
+
+.top-header .slide-content .slide-text-01 span.text:after,
+.top-header .slide-content .slide-text-01 span.text:before {
+  content: '';
+  width: 50px;
+  position: absolute;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #f15f2a;
+  top: 50%;
+  margin-top: 0
+}
+
+.top-header .slide-content .slide-text-01 span.text:before {
+  left: -65px
+}
+
+.top-header .slide-content .slide-text-01 span.text:after {
+  right: -65px
+}
+
+.top-header .slide-content .slide-text-01:after,
+.top-header .slide-content .slide-text-01:before {
+  content: '';
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background-color: #f15f2a;
+  top: 50%;
+  margin-top: -1px
+}
+
+.top-header .slide-content .slide-text-01:before {
+  left: -65px
+}
+
+.top-header .slide-content .slide-text-01:after {
+  right: -65px
+}
+
+.footer-main {
+  background-color: #040609;
+  background-size: cover
+}
+
+.swin-transition {
+  -ms-transition: all .4s ease;
+  -webkit-transition: all .4s ease;
+  transition: all .4s ease
+}

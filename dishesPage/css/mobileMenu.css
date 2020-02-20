@@ -1,0 +1,50 @@
+.menu{
+    position: fixed;
+    border: 0;
+    border-radius: 50%;
+    background-color: #fc0;
+    z-index: 9999;
+    margin-top: 8%;
+    margin-left: 10px;
+    display: none;
+    cursor: pointer;
+}
+
+.menu svg{
+    margin: 14px 14px 8px 14px;
+}
+
+.menu .menuList{
+    position: absolute;
+    color: #fc0;
+    width: max-content;
+    display: none;
+}
+
+.menu ul li{
+    background-color: rgba(255, 255, 255, 1);
+    margin-bottom: 5px;
+    border-radius: 7px;
+    border: 1px solid #fc0;
+    text-align: center;
+}
+
+.menu ul li:hover{
+    cursor: pointer;
+    color: rgb(204, 0, 102);
+}
+
+.menu ul li a{
+    margin: 0 15px 0 15px;
+}
+
+@media (max-width: 499px){
+    #selectType{
+        display: none;
+    }
+
+    .menu{
+        display: block;
+    }
+
+}
